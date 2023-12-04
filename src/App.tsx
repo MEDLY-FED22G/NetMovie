@@ -1,15 +1,12 @@
 import './App.css';
 
-function App() {
-  // const [count, setCount] = useState(0)
 
+function App() {
   return (
-    <>
-      <div>
-        <h1>hello</h1>
-      </div>
-    </>
+    <div>home</div>
   );
 }
 
 export default App;
+
+
