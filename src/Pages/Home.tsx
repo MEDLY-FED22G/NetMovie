@@ -1,9 +1,8 @@
-export default function Home() {
-  return (
-    <>
-      <div>
-        <h1>Home</h1>
-      </div>
-    </>
-  );
-}
+import { Container } from '@mantine/core';
+import React from 'react';
+
+const Home: React.FC = () => {
+  return <Container></Container>;
+};
+
+export default Home;
