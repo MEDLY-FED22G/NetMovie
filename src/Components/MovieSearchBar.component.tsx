@@ -1,50 +1,54 @@
-import { useState, useEffect } from 'react';
-import { Autocomplete } from '@mantine/core';
+import { useState } from 'react';
+import { Autocomplete, Button, Container } from '@mantine/core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-type Movie = {
-  title: string;
-  year: number;
-  rating: string;
-  actors: string[];
-  genre: string;
-  synopsis: string;
-  thumbnail: string;
-};
 
 const MovieSearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [filteredMovies, setFilteredMovies] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
-  async function fetchMovies(): Promise<Movie[]> {
-    const response = await fetch('../data/movies.json');
-    if (!response.ok) {
-      throw new Error('Failed to fetch movies');
-    }
-    return response.json();
-  }
+  const autocompleteStyles = {
+    input: {
+      fontWeight: 400, 
+      fontSize: 14, 
+      color: '#1A1B1E',
+      border: 'none',
+      borderRadius: '4px',
+      backgroundColor: '#F0F0F0',
 
-  useEffect(() => {
-    fetchMovies()
-      .then(movies => setMovies(movies))
-      .catch(error => console.error('Failed to load movies:', error));
-  }, []);
-
-  useEffect(() => {
-    const filtered = searchTerm
-      ? movies.filter(movie => movie.title.toLowerCase().includes(searchTerm.toLowerCase())).map(movie => movie.title)
-      : [];
-    setFilteredMovies(filtered);
-  }, [searchTerm, movies]);
-
+      '&:focus': {
+        borderColor: '#8C7AE6', 
+      },
+      '&:hover': {
+      }
+    },
+  };
 
   return (
-    <Autocomplete
-      value={searchTerm}
-      onChange={setSearchTerm}
-      data={filteredMovies}
-      placeholder="Search for a movie"
-    />
+    <Container>
+        <Autocomplete
+        value={searchTerm}
+        onChange={setSearchTerm}
+        placeholder="Search for a movie..."
+        styles={autocompleteStyles}
+        rightSection={
+            <Button
+          onClick={() => {
+            console.log('Searching for:', searchTerm);
+          }}
+          variant="subtle"
+          style={{
+            backgroundColor: 'transparent',
+            padding: 0,
+          }}
+        >
+                <FontAwesomeIcon icon={faSearch} color='black'/>
+            </Button>
+          }
+          rightSectionWidth={60}
+        />
+    </Container>
+   
   );
 };
 
