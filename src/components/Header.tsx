@@ -51,10 +51,12 @@ export default function Header() {
   return (
     <header className={classes.header}>
       <Container size="xl" className={classes.inner}>
-        <Group gap={2}>
-          <IconDeviceTvOld />
-          <Title order={3}>NetMOVIE</Title>
-        </Group>
+        <NavLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Group gap={2}>
+            <IconDeviceTvOld />
+            <Title order={3}>NetMOVIE</Title>
+          </Group>
+        </NavLink>
         <Group gap={15} visibleFrom="xs">
           {items}
         </Group>
