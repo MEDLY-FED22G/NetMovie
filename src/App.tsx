@@ -1,13 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import './App.css';
+import { Footer } from './Pages/Footer';
 
 function App() {
   return (
-    // HEADER GOES HERE
     <main>
+      {/* HEADER GOES HERE */}
+
       <Outlet />
+
+      <Footer />
     </main>
-    // FOOTER GOES HERE
   );
 }
 
