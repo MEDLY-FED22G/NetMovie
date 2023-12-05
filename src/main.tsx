@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import App from './App.tsx';
 import Bookmark from './Pages/Bookmark.tsx';
-import Cards from './Pages/Cards.tsx';
 import Category from './Pages/Category.tsx';
 import Home from './Pages/Home.tsx';
+import MoviePage from './Pages/MoviePage.tsx';
 import './index.css';
 
 const theme = createTheme({
@@ -20,11 +20,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <MantineProvider theme={theme} defaultColorScheme="dark">
       <Router>
         <Routes>
-          <Route path="/" element={<App />} />
-          <Route index element={<Home />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/bookmark" element={<Bookmark />} />
-          <Route path="/cards" element={<Cards />} />
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="category" element={<Category />} />
+            <Route path="bookmark" element={<Bookmark />} />
+            <Route path="movie-page" element={<MoviePage />} />
+          </Route>
         </Routes>
       </Router>
     </MantineProvider>
