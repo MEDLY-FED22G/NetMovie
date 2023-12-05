@@ -1,11 +1,4 @@
-import {
-  Box,
-  Group,
-  Image,
-  Paper,
-  Stack,
-  Text,
-} from '@mantine/core';
+import { Box, Group, Image, Paper, Stack, Text } from '@mantine/core';
 import React from 'react';
 import { Movie } from '../types';
 import BookmarkButton from './BookmarkButton';
@@ -14,17 +7,35 @@ import GradientBox from './ThumbnailOverlay';
 const MovieCard: React.FC<Movie> = (props) => {
   const { title, year, rating, thumbnail } = props;
 
+  const sizes = {
+    base: {
+      height: 210,
+      width: 140,
+    },
+    sm: {
+      height: 250,
+      width: 170,
+    },
+    md: {
+      height: 300,
+      width: 200,
+    },
+  };
 
   return (
     <Paper
-      shadow="sm"
-      h={{ xs: 200, sm: 250, md: 300 }}
-      w={{ xs: 130, sm: 170, md: 200 }}
+      shadow="xl"
+      h={{ base: sizes.base.height, sm: sizes.sm.height, md: sizes.md.height }}
+      w={{ base: sizes.base.width, sm: sizes.sm.width, md: sizes.md.width }}
       radius="md"
     >
       <Box
-        h={{ xs: 200, sm: 250, md: 300 }}
-        w={{ xs: 130, sm: 170, md: 200 }}
+        h={{
+          base: sizes.base.height,
+          sm: sizes.sm.height,
+          md: sizes.md.height,
+        }}
+        w={{ base: sizes.base.width, sm: sizes.sm.width, md: sizes.md.width }}
         style={{ position: 'relative' }}
       >
         <Image

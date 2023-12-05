@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
 import { Box } from '@mantine/core';
+import { ReactNode } from 'react';
 
 interface GradientBoxProps {
   children: ReactNode;
 }
 
- const GradientBox: React.FC<GradientBoxProps> = ({ children }) => {
+const GradientBox: React.FC<GradientBoxProps> = ({ children }) => {
   return (
     <Box
       style={{
@@ -25,4 +25,4 @@ interface GradientBoxProps {
   );
 };
 
-export default GradientBox
+export default GradientBox;
