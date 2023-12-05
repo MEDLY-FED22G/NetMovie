@@ -1,9 +1,18 @@
-export default function Home() {
+import React from 'react';
+import { Container, Group } from '@mantine/core';
+import MovieCard from '../components/MovieCard';
+import movieData from '../data/movies.json'; // Replace with the correct path
+
+const Home: React.FC = () => {
   return (
-    <>
-      <div>
-        <h1>Home</h1>
-      </div>
-    </>
+    <Container>
+      <Group>
+        {movieData.map((movie) => (
+          <MovieCard key={movie.title} {...movie}></MovieCard>
+        ))}
+      </Group>
+    </Container>
   );
-}
+};
+
+export default Home;
