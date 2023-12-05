@@ -1,13 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import './App.css';
+import { Footer } from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
-    // HEADER GOES HERE
-    <main>
-      <Outlet />
-    </main>
-    // FOOTER GOES HERE
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
   );
 }
 
