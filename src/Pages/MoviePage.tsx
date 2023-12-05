@@ -1,4 +1,4 @@
-export default function Cards() {
+export default function MoviePage() {
     return (
       <>
         <div>

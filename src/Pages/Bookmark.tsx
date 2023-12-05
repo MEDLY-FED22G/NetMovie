@@ -1,4 +1,4 @@
-export default function Bookmark() {
+export default function Bookmarks() {
     return (
       <>
         <div>
