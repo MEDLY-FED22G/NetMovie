@@ -1,7 +1,9 @@
 import { Box, Group, Image, Paper, Stack, Text } from '@mantine/core';
-import React from 'react';
-import BookmarkButton from './BookmarkButton';
+import React, { useState } from 'react';
+import ThumbnailBookmarkButton from './ThumbnailBookmarkButton';
+
 import { Movie } from './MovieContext';
+
 import GradientBox from './ThumbnailOverlay';
 
 const MovieCard: React.FC<Movie> = (props) => {
@@ -20,6 +22,12 @@ const MovieCard: React.FC<Movie> = (props) => {
       height: 300,
       width: 200,
     },
+  };
+  
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const handleBookmarkClick = () => {
+    setIsBookmarked((prev) => !prev);
   };
 
   return (
@@ -48,7 +56,10 @@ const MovieCard: React.FC<Movie> = (props) => {
         <GradientBox>
           <Stack h="100%" justify="space-between">
             <Group justify="end" p={5}>
-              <BookmarkButton />
+              <ThumbnailBookmarkButton
+                isBookmarked={isBookmarked}
+                onBookmarkClick={handleBookmarkClick}
+              />
             </Group>
             <Stack gap={3} p={5}>
               <Text fz="sm" fw={600} c={'gray.0'} lineClamp={1}>

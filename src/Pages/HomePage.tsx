@@ -1,3 +1,7 @@
+import { Container } from '@mantine/core';
+import React from 'react';
+import MovieSearchBar from '../components/MovieSearchBar.component';
+
 import { MoviesCarousel } from '../Components/MoviesCarousel';
 
 export default function Home() {
@@ -15,3 +19,4 @@ export default function Home() {
     </div>
   );
 }
+
