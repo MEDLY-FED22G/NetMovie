@@ -1,7 +1,9 @@
 import { Box, Group, Image, Paper, Stack, Text } from '@mantine/core';
 import React, { useState } from 'react';
-import { Movie } from '../types';
 import ThumbnailBookmarkButton from './ThumbnailBookmarkButton';
+
+import { Movie } from './MovieContext';
+
 import GradientBox from './ThumbnailOverlay';
 
 const MovieCard: React.FC<Movie> = (props) => {

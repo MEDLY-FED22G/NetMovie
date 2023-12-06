@@ -1,8 +1,9 @@
 import { Container } from '@mantine/core';
 import React from 'react';
+
 import BackButton from '../components/BackButton';
 import MovieDetailsLayout from '../components/MovieDetailsLayout';
-import { Movie } from '../types';
+import { Movie } from '../components/MovieContext';
 
 const MoviePage: React.FC = () => {
   const movieData: Movie = {
@@ -23,6 +24,6 @@ const MoviePage: React.FC = () => {
       <MovieDetailsLayout movie={movieData} />
     </Container>
   );
-};
+
 
 export default MoviePage;
