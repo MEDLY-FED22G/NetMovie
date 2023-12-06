@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import moviesData from '../data/movies.json';
-import { Movie } from '../types';
+import { Movie } from '../Components/MovieContext';
 import { IconArrowBadgeLeft, IconArrowBadgeRight } from '@tabler/icons-react';
 
 export function MoviesCarousel() {

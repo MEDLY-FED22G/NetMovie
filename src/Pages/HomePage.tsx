@@ -1,8 +1,17 @@
-import { Container } from '@mantine/core';
-import React from 'react';
+import { MoviesCarousel } from '../Components/MoviesCarousel';
 
-const Home: React.FC = () => {
-  return <Container>Home</Container>;
-};
+export default function Home() {
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', 
+    marginTop: '50px',
+    padding: '20px'
+  };
 
-export default Home;
+  return (
+    <div style={containerStyle}>
+      <MoviesCarousel />
+    </div>
+  );
+}
