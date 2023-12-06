@@ -9,6 +9,7 @@ import Category from './Pages/Category.tsx';
 import Home from './Pages/Home.tsx';
 import MoviePage from './Pages/MoviePage.tsx';
 import './index.css';
+import { MovieProvider } from './Components/MovieContext.tsx';
 
 const theme = createTheme({
   fontFamily: 'SharpSansNo1-Medium',
@@ -18,6 +19,7 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <MantineProvider theme={theme} defaultColorScheme="dark">
+      <MovieProvider>
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
@@ -28,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           </Route>
         </Routes>
       </Router>
+      </MovieProvider>
     </MantineProvider>
   </React.StrictMode>,
 );
