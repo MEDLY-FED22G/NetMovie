@@ -11,8 +11,8 @@ import MoviePage from './Pages/MoviePage.tsx';
 import './index.css';
 
 const theme = createTheme({
-  //fontFamily: 'Open Sans, sans-serif',  ANGE FONT HÄR
-  primaryColor: 'blue', // ANGE PRIMARY COLOR HÄR
+  fontFamily: 'SharpSansNo1-Medium',
+  primaryColor: 'blue',
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
