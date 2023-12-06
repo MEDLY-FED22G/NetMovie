@@ -4,9 +4,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import App from './App.tsx';
-import Bookmark from './Pages/Bookmark.tsx';
-import Category from './Pages/Category.tsx';
-import Home from './Pages/Home.tsx';
+import BookmarkPage from './Pages/BookmarkPage.tsx';
+import CategoryPage from './Pages/CategoryPage.tsx';
+import HomePage from './Pages/HomePage.tsx';
 import MoviePage from './Pages/MoviePage.tsx';
 import './index.css';
 
@@ -21,9 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Router>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<Home />} />
-            <Route path="category" element={<Category />} />
-            <Route path="bookmark" element={<Bookmark />} />
+            <Route index element={<HomePage />} />
+            <Route path="category" element={<CategoryPage />} />
+            <Route path="bookmark" element={<BookmarkPage />} />
             <Route path="movie-page" element={<MoviePage />} />
           </Route>
         </Routes>
