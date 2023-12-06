@@ -1,9 +1,9 @@
 import { Autocomplete, Button, Container } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useMovieContext } from './MovieContext';
 
 const MovieSearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const { searchTerm, setSearchTerm } = useMovieContext(); // Using context for searchTerm
 
   const autocompleteStyles = {
     input: {
@@ -13,7 +13,7 @@ const MovieSearchBar = () => {
       border: 'none',
       borderRadius: '4px',
       backgroundColor: '#F0F0F0',
-
+  
       '&:focus': {
         borderColor: '#8C7AE6',
       },
@@ -30,14 +30,8 @@ const MovieSearchBar = () => {
         styles={autocompleteStyles}
         rightSection={
           <Button
-            onClick={() => {
-              console.log('Searching for:', searchTerm);
-            }}
             variant="subtle"
-            style={{
-              backgroundColor: 'transparent',
-              padding: 0,
-            }}
+            style={{ backgroundColor: 'transparent', padding: 0 }}
           >
             <IconSearch color="black" />
           </Button>
