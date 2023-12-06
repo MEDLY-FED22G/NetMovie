@@ -21,7 +21,7 @@ export function MoviesCarousel() {
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', width: '100%' }}>
-      <button onClick={handlePrev} style={{ position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)' }}>
+      <button onClick={handlePrev} style={{ position: 'absolute', left: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 1 }}>
         <IconArrowBadgeLeft />
       </button>
       <div style={{ display: 'flex', transition: 'transform 0.5s ease-in-out', marginLeft: `-${currentIndex * (400 + 20)}px` }}>
@@ -29,8 +29,8 @@ export function MoviesCarousel() {
           <div
             key={movie.title}
             style={{
-              flex: '0 0 400px', // Set width to 400px
-              height: '400px', // Set height to 400px
+              flex: '0 0 400px',
+              height: '400px',
               boxSizing: 'border-box',
               padding: '20px',
               display: 'flex',
@@ -39,13 +39,17 @@ export function MoviesCarousel() {
               backgroundImage: `url(${movie.thumbnail})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              margin: '10px'
+              margin: '10px',
+              position: 'relative', 
             }}
           >
-            <div style={{ fontWeight: 700, textTransform: 'uppercase', opacity: 0.7 }}>{movie.genre}</div>
-            <div style={{ fontWeight: 900, fontSize: '1.5rem', marginBottom: '8px' }}>{movie.title}</div>
-            <div style={{ fontWeight: 700, opacity: 0.7 }}>{movie.year}</div>
-            <div style={{ fontWeight: 700, opacity: 0.7 }}>{movie.rating}</div>
+            <div style={{ fontWeight: 700, textTransform: 'uppercase', opacity: 0.7, position: 'absolute', top: '10px', left: '10px' }}>
+              {movie.genre}
+            </div>
+            <div style={{ fontWeight: 900, fontSize: '1.5rem', marginBottom: '8px', position: 'absolute', bottom: '10px', left: '10px' }}>
+              {movie.title}
+            </div>
+            <div style={{ fontWeight: 700, opacity: 0.7, position: 'absolute', bottom: '10px', right: '10px' }}>{movie.year}</div>
           </div>
         ))}
       </div>
