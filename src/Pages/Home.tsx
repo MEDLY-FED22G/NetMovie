@@ -1,13 +1,18 @@
-import { CardsCarousel } from '../Components/CardsCarousel';
 import { MoviesCarousel } from '../Components/MoviesCarousel';
 
 export default function Home() {
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', // Center content horizontally
+    marginTop: '50px', // Adjust margin as needed
+    padding: '20px'
+  };
+
   return (
-    <>
-      <div style={{  width: '100%', height: '400px' }}>
-        <MoviesCarousel />
-        <CardsCarousel />
-      </div>
-    </>
+    <div style={containerStyle}>
+      <MoviesCarousel />
+      {/* <CardsCarousel /> */}
+    </div>
   );
 }
