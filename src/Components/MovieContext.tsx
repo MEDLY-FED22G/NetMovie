@@ -1,5 +1,4 @@
 import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-
 export interface Movie {
     title: string;
     year: number;
@@ -16,6 +15,9 @@ interface MovieContextType {
   setMovies: (movies: Movie[]) => void;
   isLoading: boolean;
   error: string | null;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  filteredMovies: Movie[];
 }
 
 const MovieContext = createContext<MovieContextType | undefined>(undefined);
@@ -38,12 +40,14 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
   const [error, setError] = useState<string | null>(null);
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
 
   const fetchMovies = async (): Promise<Movie[]> => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('../data/movies.json');
+      const response = await fetch('/data/movies.json');
       if (!response.ok) {
         throw new Error('Failed to fetch movies');
       }
@@ -83,8 +87,17 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
       .catch(error => console.error('Failed to load movies:', error));
   }, []);
 
+  useEffect(() => {
+    const filtered = searchTerm
+      ? movies.filter(movie =>
+          movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : movies;
+    setFilteredMovies(filtered)
+  }, [searchTerm, movies]); // Re-run the effect when searchTerm or movies change
+
   return (
-    <MovieContext.Provider value={{ movies, setMovies, isLoading, error }}>
+    <MovieContext.Provider value={{ movies, setMovies, isLoading, error, searchTerm, setSearchTerm, filteredMovies }}>
       {children}
     </MovieContext.Provider>
   );
