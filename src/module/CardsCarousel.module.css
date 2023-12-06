@@ -1,0 +1,41 @@
+/* CardsCarousel.module.css */
+.slide {
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-size: cover;
+  background-position: center;
+}
+
+.genre {
+  position: absolute;
+  top: var(--mantine-spacing-md);
+  left: var(--mantine-spacing-md);
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.title {
+  font-weight: 900;
+  font-size: var(--mantine-font-size-lg);
+  margin-bottom: var(--mantine-spacing-xs);
+}
+
+.rating {
+  position: absolute;
+  bottom: var(--mantine-spacing-xs);
+  right: var(--mantine-spacing-xs);
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.year {
+  position: absolute;
+  bottom: var(--mantine-spacing-xs);
+  left: var(--mantine-spacing-xs);
+  font-weight: 700;
+  opacity: 0.7;
+}
