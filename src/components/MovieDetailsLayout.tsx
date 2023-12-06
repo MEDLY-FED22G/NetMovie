@@ -1,7 +1,6 @@
 import {
   Badge,
   Box,
-  Button,
   Flex,
   Group,
   Image,
@@ -9,15 +8,23 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { IconBookmarkPlus } from '@tabler/icons-react';
+import { useState } from 'react';
 import React from 'react';
 import { Movie } from '../types';
+import MovieDetailsBookmarkButton from './MovieDetailsBookmarkButton';
+
 
 interface MovieDetailsLayoutProps {
   movie: Movie;
 }
 
 const MovieDetailsLayout: React.FC<MovieDetailsLayoutProps> = ({ movie }) => {
+     const [isBookmarked, setIsBookmarked] = useState(false);
+
+     const handleBookmarkClick = () => {
+       setIsBookmarked((prev) => !prev);
+     };
+
   return (
     <Flex
       w="100%"
@@ -53,12 +60,7 @@ const MovieDetailsLayout: React.FC<MovieDetailsLayoutProps> = ({ movie }) => {
           <Text fz={{ base: 'sm', md: 'md' }}>{movie.synopsis}</Text>
         </Flex>
         <Box w={'100%'}>
-          <Button
-            w={{ base: '100%', xs: 'auto' }}
-            leftSection={<IconBookmarkPlus size={16} />}
-          >
-            Add to Bookmarks
-          </Button>
+          <MovieDetailsBookmarkButton isBookmarked={isBookmarked} onBookmarkClick={handleBookmarkClick}/>
         </Box>
       </Stack>
       <Box h="100%">
