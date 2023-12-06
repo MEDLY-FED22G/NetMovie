@@ -24,6 +24,6 @@ const MoviePage: React.FC = () => {
       <MovieDetailsLayout movie={movieData} />
     </Container>
   );
-
+}
 
 export default MoviePage;

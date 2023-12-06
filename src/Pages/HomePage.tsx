@@ -1,11 +1,11 @@
 import { Container } from '@mantine/core';
 import React from 'react';
-import MovieSearchBar from '../Components/MovieSearchBar.component';
+import MovieSearchBar from '../components/MovieSearchBar.component';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return <Container>
     <MovieSearchBar></MovieSearchBar>
   </Container>;
 };
 
-export default Home;
+export default HomePage;
