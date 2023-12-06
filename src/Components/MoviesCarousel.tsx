@@ -3,6 +3,8 @@ import moviesData from '../data/movies.json';
 import { Movie } from '../Components/MovieContext';
 import { IconArrowBadgeLeft, IconArrowBadgeRight } from '@tabler/icons-react';
 
+
+//ny pr
 export function MoviesCarousel() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
