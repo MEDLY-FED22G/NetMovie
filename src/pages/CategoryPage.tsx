@@ -7,15 +7,21 @@ const CategoryPage: React.FC = () => {
   const { movies } = useMovieContext();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = Array.from(new Set(movies.map((movie) => movie.genre)));
+  const categories = [
+    'All Movies',
+    ...Array.from(new Set(movies.map((movie) => movie.genre))),
+  ];
 
   const handleCategoryChange = (category: string | null) => {
     setSelectedCategory(category);
   };
 
-  const filteredMovies = selectedCategory
-    ? movies.filter((movie) => movie.genre === selectedCategory)
-    : movies;
+  // If no category is selected (selectedCategory is null or 'All Movies') then show all movies
+  // If ofc category is selected then show only movies that have that category
+  const filteredMovies =
+    selectedCategory && selectedCategory !== 'All Movies'
+      ? movies.filter((movie) => movie.genre === selectedCategory)
+      : movies;
 
   return (
     <Container size="xl" py={30} mih="calc(100vh - 129px)">
@@ -31,9 +37,10 @@ const CategoryPage: React.FC = () => {
         </Tabs.List>
       </Tabs>
 
+      {/* For every category show this */}
       <h2>Selected Category: {selectedCategory || 'All Movies'}</h2>
 
-      {/* Display movies based on the selected category */}
+      {/* When categorie is chosen it will show this */}
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {filteredMovies.map((movie) => (
           <MovieCard key={movie.title} {...movie} />
