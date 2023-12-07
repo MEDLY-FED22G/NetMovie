@@ -1,11 +1,22 @@
 import { Container } from '@mantine/core';
 import React from 'react';
-import MovieSearchBar from '../Components/MovieSearchBar.component';
+import MovieSearchBar from '../components/MovieSearchBar.component';
 
-const Home: React.FC = () => {
-  return <Container>
-    <MovieSearchBar></MovieSearchBar>
-  </Container>;
-};
+import { MoviesCarousel } from '../Components/MoviesCarousel';
 
-export default Home;
+export default function Home() {
+  const containerStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', 
+    marginTop: '50px',
+    padding: '20px'
+  };
+
+  return (
+    <div style={containerStyle}>
+      <MoviesCarousel />
+    </div>
+  );
+}
+
