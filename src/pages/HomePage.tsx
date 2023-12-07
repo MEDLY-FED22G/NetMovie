@@ -1,14 +1,16 @@
 import { Container } from '@mantine/core';
 import MovieSearchBar from '../components/MovieSearchBar.component';
 import MyCarousel from '../components/Carousel'; // Updated import
-import moviesData from '../data/movies.json';
+import { useMovieContext } from '../components/MovieContext';
 
 export default function Home() {
+  const { trendingMovies, recommendedMovies } = useMovieContext();
+
   return (
     <Container size={'xl'}>
       <MovieSearchBar />
-      <MyCarousel movies={moviesData} title="Trending" />
-      <MyCarousel movies={moviesData} title="Recommended for you"/>
+      <MyCarousel movies={trendingMovies} title="Trending" />
+      <MyCarousel movies={recommendedMovies} title="Recommended for you"/>
     </Container>
   );
 }
