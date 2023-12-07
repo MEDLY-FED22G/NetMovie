@@ -136,7 +136,6 @@ export default function Header() {
       style={{
         position: 'relative',
         backgroundColor: 'black',
-        marginBottom: '120px',
       }}
     >
       <Container

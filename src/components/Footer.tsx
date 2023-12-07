@@ -29,7 +29,6 @@ export function Footer() {
     <Container
       size="xl"
       style={{
-        marginTop: '120px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
