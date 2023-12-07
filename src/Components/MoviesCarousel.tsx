@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import moviesData from '../data/movies.json';
-import { Movie } from '../Components/MovieContext';
+import { Movie } from './MovieContext';
 import { IconArrowBadgeLeft, IconArrowBadgeRight } from '@tabler/icons-react';
-import BookmarkButton from './BookmarkButton';
 
 export function MoviesCarousel() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -70,7 +69,7 @@ export function MoviesCarousel() {
                 zIndex: 2,
               }}
             >
-              <BookmarkButton />
+
             </div>
             <div
               style={{

@@ -1,8 +1,7 @@
-import { Container } from '@mantine/core';
 import React from 'react';
 import MovieSearchBar from '../components/MovieSearchBar.component';
 
-import { MoviesCarousel } from '../Components/MoviesCarousel';
+import { MoviesCarousel } from '../components/MoviesCarousel';
 
 export default function Home() {
   const containerStyle: React.CSSProperties = {
@@ -15,6 +14,7 @@ export default function Home() {
 
   return (
     <div style={containerStyle}>
+      <MovieSearchBar />
       <MoviesCarousel />
     </div>
   );

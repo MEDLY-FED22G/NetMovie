@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
-import MovieCard from '../Components/MovieCard';
+import MovieCard from '../components/MovieCard';
 import data from '../data/movies.json';
 import { customRender } from './setup';
 
