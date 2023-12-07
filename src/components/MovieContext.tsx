@@ -18,6 +18,8 @@ interface MovieContextType {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   filteredMovies: Movie[];
+  trendingMovies: Movie[];
+  recommendedMovies: Movie[];
 }
 
 const MovieContext = createContext<MovieContextType | undefined>(undefined);
@@ -74,7 +76,7 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
   }, [searchTerm, movies]); // Re-run the effect when searchTerm or movies change
 
   return (
-    <MovieContext.Provider value={{ movies, setMovies, searchTerm, setSearchTerm, filteredMovies }}>
+    <MovieContext.Provider value={{ movies, setMovies, searchTerm, setSearchTerm, filteredMovies, trendingMovies, recommendedMovies }}>
       {children}
     </MovieContext.Provider>
   );
