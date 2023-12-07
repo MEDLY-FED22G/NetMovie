@@ -1,43 +1,43 @@
-import React from 'react';
 import {
   Badge,
   Box,
+  Container,
   Flex,
   Group,
   Image,
   Stack,
   Text,
   Title,
-  Container
 } from '@mantine/core';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
-import { Movie } from '../components/MovieContext';
-import MovieDetailsBookmarkButton from '../components/MovieDetailsBookmarkButton'
+import { useMovieContext } from '../components/MovieContext';
+import MovieDetailsBookmarkButton from '../components/MovieDetailsBookmarkButton';
 
 const MoviePage: React.FC = () => {
-
-  const movie: Movie = {
-    title: 'The Godfather: Part II',
-    year: 1974,
-    rating: 'R',
-    actors: ['Al Pacino', 'Robert De Niro', 'Robert Duvall'],
-    genre: 'Crime, Drama',
-    synopsis:
-      'The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.',
-    thumbnail:
-      'https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY562_CR7,0,380,562_.jpg',
-    isTrending: true,
-  };
-
+  const { movies } = useMovieContext();
+  const { title } = useParams<{ title: string }>();
   const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const movie = movies.find((movie) => movie.title === title);
+
+  if (!movie) {
+    // Handle the case where movie details couldn't be fetched
+    return <div>Error fetching movie details</div>;
+  }
 
   const handleBookmarkClick = () => {
     setIsBookmarked((prev) => !prev);
   };
   return (
-    <Container size="xl" pt={{ base: 10, xs: 50, md: 70 }} mih={"calc(100vh - 129px)"} pb={30}>
-      <Stack align='start' gap={15}>
+    <Container
+      size="xl"
+      pt={{ base: 10, xs: 50, md: 70 }}
+      mih={'calc(100vh - 129px)'}
+      pb={30}
+    >
+      <Stack align="start" gap={15}>
         <BackButton />
         <Flex
           w="100%"
