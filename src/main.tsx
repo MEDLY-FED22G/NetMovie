@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage.tsx';
 import MoviePage from './pages/MoviePage.tsx';
 import './index.css';
 import { MovieProvider } from './components/MovieContext.tsx';
+import '@mantine/carousel/styles.css';
 
 const theme = createTheme({
   fontFamily: 'SharpSansNo1-Medium',
