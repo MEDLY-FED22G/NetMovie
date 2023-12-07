@@ -4,12 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import App from './App.tsx';
-import BookmarkPage from './Pages/BookmarkPage.tsx';
-import CategoryPage from './Pages/CategoryPage.tsx';
-import HomePage from './Pages/HomePage.tsx';
-import MoviePage from './Pages/MoviePage.tsx';
+import BookmarkPage from './pages/BookmarkPage.tsx';
+import CategoryPage from './pages/CategoryPage.tsx';
+import HomePage from './pages/HomePage.tsx';
+import MoviePage from './pages/MoviePage.tsx';
 import './index.css';
-import { MovieProvider } from './Components/MovieContext.tsx';
+import { MovieProvider } from './components/MovieContext.tsx';
 
 const theme = createTheme({
   fontFamily: 'SharpSansNo1-Medium',

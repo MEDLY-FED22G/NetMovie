@@ -24,3 +24,5 @@ const BackButton: React.FC = () => {
 };
 
 export default BackButton;
+
+// Navigerar ett steg bakåt, ska ligga på MoviePage
