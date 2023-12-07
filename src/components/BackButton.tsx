@@ -15,7 +15,6 @@ const BackButton: React.FC = () => {
       variant="transparent"
       size="compact-sm"
       color="gray"
-      mb={10}
       onClick={goBack}
     >
       Back

@@ -1,4 +1,4 @@
-import { Autocomplete, Button, Container } from '@mantine/core';
+import { Autocomplete, Button } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { useMovieContext } from './MovieContext';
 
@@ -22,7 +22,6 @@ const MovieSearchBar = () => {
   };
 
   return (
-    <Container>
       <Autocomplete
         value={searchTerm}
         onChange={setSearchTerm}
@@ -38,7 +37,6 @@ const MovieSearchBar = () => {
         }
         rightSectionWidth={60}
       />
-    </Container>
   );
 };
 
