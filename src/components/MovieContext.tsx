@@ -1,4 +1,6 @@
 import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import moviesData from '../data/movies.json';
+
 export interface Movie {
     title: string;
     year: number;
@@ -13,8 +15,6 @@ export interface Movie {
 interface MovieContextType {
   movies: Movie[];
   setMovies: (movies: Movie[]) => void;
-  isLoading: boolean;
-  error: string | null;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   filteredMovies: Movie[];
@@ -36,31 +36,10 @@ interface MovieProviderProps {
 
 export const MovieProvider = ({ children }: MovieProviderProps) => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
-
-  const fetchMovies = async (): Promise<Movie[]> => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch('/data/movies.json');
-      if (!response.ok) {
-        throw new Error('Failed to fetch movies');
-      }
-      const movies = await response.json();
-      setMovies(movies);
-      setIsLoading(false);
-      return movies;
-    } catch (error: any) {
-      setIsLoading(false);
-      setError(error.message);
-      throw error;
-    }
-  }
 
   const shuffleMovies = (movies: Movie[]) => {
     //Fisher-Yates shuffle
@@ -71,20 +50,18 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
     return movies;
   }
 
-  const selectTrendingAndRecommended = (movies: Movie[]) => {
-    const shuffledMovies = shuffleMovies([...movies]); // Shuffling a copy of the movies array
-    const selectedMovies = shuffledMovies.slice(0, 20); // Take first 20 movies
-    setTrendingMovies(selectedMovies.slice(0, 10)); // First 10 for trending
-    setRecommendedMovies(selectedMovies.slice(10, 20)); // Next 10 for recommended
+  const selectTrendingAndRecommended = () => {
+    const trending = moviesData.filter(movie => movie.isTrending);
+    setTrendingMovies(trending);
+    const notTrending = moviesData.filter(movie => !movie.isTrending);
+    const shuffledNotTrending = shuffleMovies([...notTrending]);
+    const recommended = shuffledNotTrending.slice(0, 7);
+    setRecommendedMovies(recommended);
   }
 
   useEffect(() => {
-    fetchMovies()
-      .then(movies => {
-        setMovies(movies);
-        selectTrendingAndRecommended(movies);
-      })
-      .catch(error => console.error('Failed to load movies:', error));
+    setMovies(moviesData);
+    selectTrendingAndRecommended();
   }, []);
 
   useEffect(() => {
@@ -97,7 +74,7 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
   }, [searchTerm, movies]); // Re-run the effect when searchTerm or movies change
 
   return (
-    <MovieContext.Provider value={{ movies, setMovies, isLoading, error, searchTerm, setSearchTerm, filteredMovies }}>
+    <MovieContext.Provider value={{ movies, setMovies, searchTerm, setSearchTerm, filteredMovies }}>
       {children}
     </MovieContext.Provider>
   );
