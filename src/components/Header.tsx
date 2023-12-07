@@ -135,7 +135,6 @@ export default function Header() {
     <header
       style={{
         position: 'relative',
-        width:"100%",
         backgroundColor: 'black',
       }}
     >
