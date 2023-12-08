@@ -1,5 +1,6 @@
 import { Box, Group, Image, Paper, Stack, Text } from '@mantine/core';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ThumbnailBookmarkButton from './ThumbnailBookmarkButton';
 
 import { Movie } from './MovieContext';
@@ -23,7 +24,7 @@ const MovieCard: React.FC<Movie> = (props) => {
       width: 200,
     },
   };
-  
+
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const handleBookmarkClick = () => {
@@ -31,53 +32,64 @@ const MovieCard: React.FC<Movie> = (props) => {
   };
 
   return (
-    <Paper
-      shadow="xl"
-      h={{ base: sizes.base.height, sm: sizes.sm.height, md: sizes.md.height }}
-      w={{ base: sizes.base.width, sm: sizes.sm.width, md: sizes.md.width }}
-      radius="md"
-    >
-      <Box
-        h={{
-          base: sizes.base.height,
-          sm: sizes.sm.height,
-          md: sizes.md.height,
-        }}
-        w={{ base: sizes.base.width, sm: sizes.sm.width, md: sizes.md.width }}
-        style={{ position: 'relative' }}
-      >
-        <Image
-          src={thumbnail}
-          alt={`${title} Poster`}
-          fallbackSrc="/src/assets/no_image.png"
-          radius="sm"
-          h="100%"
-        />
-        <GradientBox>
-          <Stack h="100%" justify="space-between">
-            <Group justify="end" p={5}>
-              <ThumbnailBookmarkButton
-                isBookmarked={isBookmarked}
-                onBookmarkClick={handleBookmarkClick}
-              />
-            </Group>
-            <Stack gap={3} p={5}>
-              <Text fz="sm" fw={600} c={'gray.0'} lineClamp={1}>
-                {title}
-              </Text>
-              <Group gap={10}>
-                <Text fz="xs" c="dimmed">
-                  {year}
-                </Text>
-                <Text fz="xs" c="dimmed">
-                  Rating: {rating}
-                </Text>
-              </Group>
-            </Stack>
-          </Stack>
-        </GradientBox>
-      </Box>
-    </Paper>
+    <Box style={{ position: 'relative' }}>
+      <ThumbnailBookmarkButton
+        isBookmarked={isBookmarked}
+        onBookmarkClick={handleBookmarkClick}
+      />
+      <Link to={`/movies/${encodeURIComponent(title)}`}>
+        <Paper
+          shadow="xl"
+          h={{
+            base: sizes.base.height,
+            sm: sizes.sm.height,
+            md: sizes.md.height,
+          }}
+          w={{ base: sizes.base.width, sm: sizes.sm.width, md: sizes.md.width }}
+          radius="md"
+        >
+          <Box
+            h={{
+              base: sizes.base.height,
+              sm: sizes.sm.height,
+              md: sizes.md.height,
+            }}
+            w={{
+              base: sizes.base.width,
+              sm: sizes.sm.width,
+              md: sizes.md.width,
+            }}
+            style={{ position: 'relative' }}
+          >
+            <Image
+              src={thumbnail}
+              alt={`${title} Poster`}
+              fallbackSrc="/src/assets/no_image.png"
+              radius="sm"
+              h="100%"
+            />
+            <GradientBox>
+              <Stack h="100%" justify="space-between">
+                <Group justify="end" p={5}></Group>
+                <Stack gap={3} p={5}>
+                  <Text fz="sm" fw={600} c={'gray.0'} lineClamp={1}>
+                    {title}
+                  </Text>
+                  <Group gap={10}>
+                    <Text fz="xs" c="dimmed">
+                      {year}
+                    </Text>
+                    <Text fz="xs" c="dimmed">
+                      Rating: {rating}
+                    </Text>
+                  </Group>
+                </Stack>
+              </Stack>
+            </GradientBox>
+          </Box>
+        </Paper>
+      </Link>
+    </Box>
   );
 };
 
