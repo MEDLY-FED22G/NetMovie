@@ -1,4 +1,4 @@
-import { ActionIcon, Anchor, Container, Group, rem } from '@mantine/core';
+import { ActionIcon, Anchor, Box, Container, Group, rem } from '@mantine/core';
 import {
   IconBrandInstagram,
   IconBrandTwitter,
@@ -26,38 +26,47 @@ export function Footer() {
   ));
 
   return (
-    <Container
-      size="xl"
+    <Box
+      component="footer"
+      bg="black"
       style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem',
-        marginTop: '120px',
+        bottom: 0,
+        width: '100%',
+        zIndex: 999, // Adjust the z-index as needed
       }}
     >
-      <Group>{items}</Group>
+      <Container
+        size="xl"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '1rem',
+        }}
+      >
+        <Group>{items}</Group>
 
-      <Group gap="xs" justify="flex-end" wrap="nowrap">
-        <ActionIcon size="lg" variant="default" radius="xl">
-          <IconBrandTwitter
-            style={{ width: rem(18), height: rem(18) }}
-            stroke={1.5}
-          />
-        </ActionIcon>
-        <ActionIcon size="lg" variant="default" radius="xl">
-          <IconBrandYoutube
-            style={{ width: rem(18), height: rem(18) }}
-            stroke={1.5}
-          />
-        </ActionIcon>
-        <ActionIcon size="lg" variant="default" radius="xl">
-          <IconBrandInstagram
-            style={{ width: rem(18), height: rem(18) }}
-            stroke={1.5}
-          />
-        </ActionIcon>
-      </Group>
-    </Container>
+        <Group gap="xs" justify="flex-end" wrap="nowrap">
+          <ActionIcon size="lg" variant="default" radius="xl">
+            <IconBrandTwitter
+              style={{ width: rem(18), height: rem(18) }}
+              stroke={1.5}
+            />
+          </ActionIcon>
+          <ActionIcon size="lg" variant="default" radius="xl">
+            <IconBrandYoutube
+              style={{ width: rem(18), height: rem(18) }}
+              stroke={1.5}
+            />
+          </ActionIcon>
+          <ActionIcon size="lg" variant="default" radius="xl">
+            <IconBrandInstagram
+              style={{ width: rem(18), height: rem(18) }}
+              stroke={1.5}
+            />
+          </ActionIcon>
+        </Group>
+      </Container>
+    </Box>
   );
 }

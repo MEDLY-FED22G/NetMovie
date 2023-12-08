@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route index element={<HomePage />} />
             <Route path="category" element={<CategoryPage />} />
             <Route path="bookmark" element={<BookmarkPage />} />
-            <Route path="movie-page" element={<MoviePage />} />
+           <Route path="/movies/:title" element={<MoviePage />} />
           </Route>
         </Routes>
       </Router>
