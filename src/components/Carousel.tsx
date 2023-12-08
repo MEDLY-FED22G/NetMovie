@@ -39,11 +39,10 @@ const MyCarousel: React.FC<MyCarouselProps> = ({ movies, title }) => {
           sm: sizes.sm.height,
           md: sizes.md.height,
         }}
-        slideGap="md"
+        slideGap="lg"
         controlsOffset="md"
         controlSize={35}
         align='start'
-        containScroll='trimSnaps'
         loop
         dragFree
       >
