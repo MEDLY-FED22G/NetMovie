@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Text } from '@mantine/core';
+import { Container, Group, Text } from '@mantine/core';
 import { useMovieContext } from './MovieContext'; // Update the import path as necessary
 import MovieCard from './MovieCard'; // Update the import path as necessary
 
@@ -12,16 +12,16 @@ const MoviesGrid: React.FC = () => {
     }
   
     return (
-      <div style={{ marginTop: '20px' }}>
-        <Grid>
-          {filteredMovies.map((movie, index) => (
-            <Grid.Col span={2} key={index}>
-              <MovieCard {...movie} />
-            </Grid.Col>
-          ))}
-        </Grid>
-      </div>
-    );
-  };
-  
-  export default MoviesGrid;
+        <Container size={'xl'} py={30} mih={'calc(100vh - 129px)'}>
+            <Group gap={'lg'}>
+            {filteredMovies.map((movie, index) => (
+                <div key={index} style={{margin: '10px' }}>
+                <MovieCard {...movie} />
+                </div>
+            ))}
+            </Group>
+        </Container>
+      );
+    };
+    
+    export default MoviesGrid;
