@@ -2,7 +2,7 @@ import React from 'react';
 import { Carousel } from '@mantine/carousel';
 import { Stack, Title } from '@mantine/core';
 import MovieCard from './MovieCard';
-import { Movie } from './MovieContext'; // Make sure to import the Movie type
+import { Movie } from './MovieContext';
 
 interface MyCarouselProps {
   movies: Movie[];
@@ -41,6 +41,9 @@ const MyCarousel: React.FC<MyCarouselProps> = ({ movies, title }) => {
         }}
         slideGap="md"
         controlsOffset="md"
+        controlSize={35}
+        align='start'
+        containScroll='trimSnaps'
         loop
         dragFree
       >
