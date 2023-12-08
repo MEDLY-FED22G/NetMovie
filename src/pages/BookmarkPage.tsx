@@ -9,8 +9,8 @@ const BookmarkPage: React.FC = () => {
   
   return (
     <Container size={'xl'} py={30} mih={'calc(100vh - 129px)'}>
-      <Title order={2}>My Bookmarks</Title>
-      <Group>
+      <Title mb={20} order={2}>My Bookmarks</Title>
+      <Group gap="lg">
       {bookmarkedMovies.map((movie, index) => (
         <MovieCard key={index} {...movie} />
       ))}
