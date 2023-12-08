@@ -1,14 +1,15 @@
 import { Box, Group, Image, Paper, Stack, Text } from '@mantine/core';
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ThumbnailBookmarkButton from './ThumbnailBookmarkButton';
 
-import { Movie } from './MovieContext';
+import { Movie, useMovieContext } from './MovieContext';
 
 import GradientBox from './ThumbnailOverlay';
 
-const MovieCard: React.FC<Movie> = (props) => {
-  const { title, year, rating, thumbnail } = props;
+const MovieCard: React.FC<Movie> = (movie) => {
+  const { addBookmarkedMovie, removeBookmarkedMovie, isMovieBookmarked } =
+    useMovieContext();
 
   const sizes = {
     base: {
@@ -25,10 +26,15 @@ const MovieCard: React.FC<Movie> = (props) => {
     },
   };
 
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const isBookmarked = isMovieBookmarked(movie.title);
 
   const handleBookmarkClick = () => {
-    setIsBookmarked((prev) => !prev);
+    // Toggle bookmark status
+    if (!isBookmarked) {
+      addBookmarkedMovie(movie);
+    } else {
+      removeBookmarkedMovie(movie);
+    }
   };
 
   return (
@@ -37,7 +43,7 @@ const MovieCard: React.FC<Movie> = (props) => {
         isBookmarked={isBookmarked}
         onBookmarkClick={handleBookmarkClick}
       />
-      <Link to={`/movies/${encodeURIComponent(title)}`}>
+      <Link to={`/movies/${encodeURIComponent(movie.title)}`}>
         <Paper
           shadow="xl"
           h={{
@@ -62,8 +68,8 @@ const MovieCard: React.FC<Movie> = (props) => {
             style={{ position: 'relative' }}
           >
             <Image
-              src={thumbnail}
-              alt={`${title} Poster`}
+              src={movie.thumbnail}
+              alt={`${movie.title} Poster`}
               fallbackSrc="/src/assets/no_image.png"
               radius="sm"
               h="100%"
@@ -73,14 +79,14 @@ const MovieCard: React.FC<Movie> = (props) => {
                 <Group justify="end" p={5}></Group>
                 <Stack gap={3} p={5}>
                   <Text fz="sm" fw={600} c={'gray.0'} lineClamp={1}>
-                    {title}
+                    {movie.title}
                   </Text>
                   <Group gap={10}>
                     <Text fz="xs" c="dimmed">
-                      {year}
+                      {movie.year}
                     </Text>
                     <Text fz="xs" c="dimmed">
-                      Rating: {rating}
+                      Rating: {movie.rating}
                     </Text>
                   </Group>
                 </Stack>

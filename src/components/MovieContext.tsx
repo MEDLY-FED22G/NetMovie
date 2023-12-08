@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import moviesData from '../data/movies.json';
+import { useLocalStorage } from '@mantine/hooks';
 
 export interface Movie {
     title: string;
@@ -15,6 +16,11 @@ export interface Movie {
 interface MovieContextType {
   movies: Movie[];
   setMovies: (movies: Movie[]) => void;
+  bookmarkedMovies: Movie[];
+  setBookmarkedMovies: (movies: Movie[]) => void;
+  addBookmarkedMovie: (movie: Movie) => void;
+  removeBookmarkedMovie: (movie: Movie) => void;
+  isMovieBookmarked: (title: string) => boolean;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   filteredMovies: Movie[];
@@ -38,6 +44,10 @@ interface MovieProviderProps {
 
 export const MovieProvider = ({ children }: MovieProviderProps) => {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [bookmarkedMovies, setBookmarkedMovies] = useLocalStorage<Movie[]>({
+    key: 'bookmarks',
+    defaultValue: [],
+  });
   const [trendingMovies, setTrendingMovies] = useState<Movie[]>([]);
   const [recommendedMovies, setRecommendedMovies] = useState<Movie[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -51,6 +61,17 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
     }
     return movies;
   }
+  const addBookmarkedMovie = (movie: Movie) => {
+    setBookmarkedMovies((prevBookmarks) => [...prevBookmarks, movie]);
+  };
+  const removeBookmarkedMovie = (movie: Movie) => {
+    setBookmarkedMovies((prevBookmarks) =>
+      prevBookmarks.filter((bm) => bm.title !== movie.title)
+    );
+  };
+  const isMovieBookmarked = (title: string) => {
+    return bookmarkedMovies.some((bm) => bm.title === title);
+  };
 
   const selectTrendingAndRecommended = () => {
     const trending = moviesData.filter(movie => movie.isTrending);
@@ -76,7 +97,7 @@ export const MovieProvider = ({ children }: MovieProviderProps) => {
   }, [searchTerm, movies]); // Re-run the effect when searchTerm or movies change
 
   return (
-    <MovieContext.Provider value={{ movies, setMovies, searchTerm, setSearchTerm, filteredMovies, trendingMovies, recommendedMovies }}>
+    <MovieContext.Provider value={{ movies, setMovies, bookmarkedMovies, isMovieBookmarked, addBookmarkedMovie, removeBookmarkedMovie, setBookmarkedMovies, searchTerm, setSearchTerm, filteredMovies, trendingMovies, recommendedMovies }}>
       {children}
     </MovieContext.Provider>
   );
