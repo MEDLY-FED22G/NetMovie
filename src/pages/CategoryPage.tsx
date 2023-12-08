@@ -5,7 +5,9 @@ import { useMovieContext } from '../components/MovieContext';
 
 const CategoryPage: React.FC = () => {
   const { movies } = useMovieContext();
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    'Action',
+  );
 
   const categories = ['Action', 'Drama', 'Thriller'];
 
@@ -14,10 +16,9 @@ const CategoryPage: React.FC = () => {
   };
 
   // If a category is selected, filter movies that belong to that category
-  const filteredMovies =
-    selectedCategory && selectedCategory
-      ? movies.filter((movie) => movie.genre.includes(selectedCategory))
-      : movies;
+  const filteredMovies = selectedCategory
+    ? movies.filter((movie) => movie.genre.includes(selectedCategory))
+    : movies;
 
   return (
     <Container size="xl" py={30} mih="calc(100vh - 129px)">
@@ -34,7 +35,7 @@ const CategoryPage: React.FC = () => {
       </Tabs>
 
       {/* For every category, show this */}
-      <h2>Selected Category: {selectedCategory || 'All Movies'}</h2>
+      <h2>Selected Category: {selectedCategory}</h2>
 
       {/* When a category is chosen, show movies belonging to that category */}
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
