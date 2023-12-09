@@ -1,15 +1,16 @@
-import { Container, Tabs } from '@mantine/core';
-import React, { useState } from 'react';
+import { Container, Group, Tabs } from '@mantine/core';
+import React, { useEffect, useState } from 'react';
 import MovieCard from '../components/MovieCard';
 import { useMovieContext } from '../components/MovieContext';
 
 const CategoryPage: React.FC = () => {
   const { movies } = useMovieContext();
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    'Action',
-  );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const categories = ['Action', 'Drama', 'Thriller'];
+  // Get all genres from movies in the data file
+  const genres = Array.from(
+    new Set(movies.flatMap((movie) => movie.genre.split(', '))),
+  );
 
   const handleCategoryChange = (category: string | null) => {
     setSelectedCategory(category);
@@ -20,13 +21,15 @@ const CategoryPage: React.FC = () => {
     ? movies.filter((movie) => movie.genre.includes(selectedCategory))
     : movies;
 
+  useEffect(() => {
+    setSelectedCategory(null);
+  }, []);
+
   return (
     <Container size="xl" py={30} mih="calc(100vh - 129px)">
-      <h2>Movie Categories</h2>
-
-      <Tabs defaultValue={categories[0]} onChange={handleCategoryChange}>
-        <Tabs.List>
-          {categories.map((category) => (
+      <Tabs onChange={handleCategoryChange}>
+        <Tabs.List mb={30}>
+          {genres.map((category) => (
             <Tabs.Tab key={category} value={category}>
               {category}
             </Tabs.Tab>
@@ -34,15 +37,14 @@ const CategoryPage: React.FC = () => {
         </Tabs.List>
       </Tabs>
 
-      {/* For every category, show this */}
-      <h2>Selected Category: {selectedCategory}</h2>
+      {/* <h2>{selectedCategory}</h2> */}
 
       {/* When a category is chosen, show movies belonging to that category */}
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <Group>
         {filteredMovies.map((movie) => (
           <MovieCard key={movie.title} {...movie} />
         ))}
-      </div>
+      </Group>
     </Container>
   );
 };
