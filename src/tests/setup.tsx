@@ -6,6 +6,13 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { afterEach, beforeAll, vi } from 'vitest';
 import { MovieProvider } from '../components/MovieContext';
 
+// mockar WEB API:et ReSizeObserver
+class MockResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
 // Före alla tester, simulera window.matchMedia-funktionen för att undvika fel vid körning av tester
 beforeAll(() => {
   window.matchMedia = vi.fn().mockImplementation((query) => ({
@@ -18,6 +25,8 @@ beforeAll(() => {
     removeEventListener: vi.fn(),
     dispatchEvent: vi.fn(),
   }));
+  // Sätter upp mockningen för ReSizeObserver
+  global.ResizeObserver = MockResizeObserver;
 });
 
 // Definiera en anpassad render-funktion som omsluter komponenten med nödvändiga context-leverantörer
