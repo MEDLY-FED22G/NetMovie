@@ -8,8 +8,8 @@ test('renders year and rating props', () => {
   const movie = data[0];
   customRender(<MovieCard {...movie} />);
 
-  const yearText = screen.getByText('1994');
-  const ratingText = screen.getByText('Rating: R');
+  const yearText = screen.getByText('2002');
+  const ratingText = screen.getByText('Rating: PG');
   screen.debug();
 
   expect(yearText).toBeInTheDocument();
