@@ -153,7 +153,7 @@ export default function Header() {
             <Title order={3}>NetMOVIE</Title>
           </Group>
         </NavLink>
-        <Group gap={15} visibleFrom="xs">
+        <Group gap={15} visibleFrom="xs" data-testid="nav-bar">
           {items}
         </Group>
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="md" />
