@@ -46,4 +46,5 @@ it('filters movies based on selected category', () => {
   // Click on a tab to select a category
   const comedyTab = screen.getByTestId('Comedy-tab');
   fireEvent.click(comedyTab);
+  expect(screen.getByText('Comedy')).toBeInTheDocument();
 });
