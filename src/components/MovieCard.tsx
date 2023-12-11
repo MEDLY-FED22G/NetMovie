@@ -78,7 +78,7 @@ const MovieCard: React.FC<Movie> = (movie) => {
               <Stack h="100%" justify="space-between">
                 <Group justify="end" p={5}></Group>
                 <Stack gap={3} p={5}>
-                  <Text fz="sm" fw={600} c={'gray.0'} lineClamp={1}>
+                  <Text fz="sm" fw={600} c={'gray.0'} lineClamp={1} >
                     {movie.title}
                   </Text>
                   <Group gap={10}>
