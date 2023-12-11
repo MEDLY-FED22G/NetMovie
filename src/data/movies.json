@@ -1,5 +1,14 @@
 [
   {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "year": 2002,
+    "rating": "PG",
+    "actors": ["Daniel Radcliffe", "Rupert Grint", "Emma Watson"],
+    "genre": "Adventure",
+    "synopsis": "Harry Potter returns to Hogwarts for his second year, facing mysterious attacks and the legend of the Chamber of Secrets. With the help of his friends, Harry unravels the secrets threatening the school.",
+    "thumbnail": "https://m.media-amazon.com/images/M/MV5BMjE0YjUzNDUtMjc5OS00MTU3LTgxMmUtODhkOThkMzdjNWI4XkEyXkFqcGdeQXVyMTA3MzQ4MTc0._V1_.jpg"
+  },
+  {
     "title": "The Shawshank Redemption",
     "year": 1994,
     "rating": "R",
@@ -26,6 +35,25 @@
     "synopsis": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UY562_CR7,0,380,562_.jpg",
     "isTrending": true
+  },
+  {
+    "title": "Crazy Rich Asians",
+    "year": 2018,
+    "rating": "PG-13",
+    "actors": ["Constance Wu", "Henry Golding", "Michelle Yeoh"],
+    "genre": "Comedy, Drama, Romance",
+    "synopsis": "This contemporary romantic comedy follows an American woman who discovers that her boyfriend comes from a wealthy family in Singapore.",
+    "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTYxNDMyOTAxN15BMl5BanBnXkFtZTgwMDg1ODYzNTM@._V1_.jpg",
+    "isTrending": true
+  },
+  {
+    "title": "The Little Mermaid",
+    "year": 1989,
+    "rating": "G",
+    "actors": ["Jodi Benson", "Samuel E. Wright", "Rene Auberjonois"],
+    "genre": "Animation, Family, Fantasy",
+    "synopsis": "A mermaid princess makes a Faustian bargain in an attempt to become human and win a prince's love.",
+    "thumbnail": "https://i.ebayimg.com/images/g/emsAAOSwWxZkHyDi/s-l1600.jpg"
   },
   {
     "title": "The Dark Knight",
@@ -279,5 +307,52 @@
     "synopsis": "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run and checks into a remote motel run by a young man under the domination of his mother.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     "isTrending": true
+  },
+  {
+    "title": "Frozen",
+    "year": 2013,
+    "rating": "PG",
+    "actors": ["Kristen Bell", "Idina Menzel", "Jonathan Groff"],
+    "genre": "Animation, Adventure, Comedy",
+    "synopsis": "Two sisters embark on a perilous journey to discover the source of Elsa's magical powers and save their kingdom from an eternal winter.",
+    "thumbnail": "https://m.media-amazon.com/images/I/91dK48LufIL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "title": "Moana",
+    "year": 2016,
+    "rating": "PG",
+    "actors": ["Auli'i Cravalho", "Dwayne Johnson", "Rachel House"],
+    "genre": "Animation, Adventure, Comedy",
+    "synopsis": "In Ancient Polynesia, a daring and spirited young girl sets sail to save her people with the help of the demigod Maui.",
+    "thumbnail": "https://m.media-amazon.com/images/M/MV5BMjI4MzU5NTExNF5BMl5BanBnXkFtZTgwNzY1MTEwMDI@._V1_FMjpg_UX1000_.jpg",
+    "isTrending": true
+  },
+  {
+    "title": "The Princess Diaries",
+    "year": 2001,
+    "rating": "G",
+    "actors": ["Anne Hathaway", "Julie Andrews", "Heather Matarazzo"],
+    "genre": "Comedy, Family, Romance",
+    "synopsis": "Mia Thermopolis discovers that she is the heir to the throne of the small European principality of Genovia.",
+    "thumbnail": "https://lumiere-a.akamaihd.net/v1/images/p_theprincessdiaries_19875_2ef7e437.jpeg"
+  },
+  {
+    "title": "Notting Hill",
+    "year": 1999,
+    "rating": "PG-13",
+    "actors": ["Hugh Grant", "Julia Roberts", "Richard McCabe"],
+    "genre": "Comedy, Drama, Romance",
+    "synopsis": "The life of a simple bookshop owner changes when he meets the most famous film star in the world.",
+    "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTE5OTkwYzYtNDhlNC00MzljLTk1YTktY2IxZjliZmNjMjUzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+  },
+
+  {
+    "title": "La La Land",
+    "year": 2016,
+    "rating": "PG-13",
+    "actors": ["Ryan Gosling", "Emma Stone", "Rosemarie DeWitt"],
+    "genre": "Comedy, Drama, Music",
+    "synopsis": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+    "thumbnail": "https://s1.adlibris.com/images/30657112/la-la-land.jpg"
   }
-]
+  ]

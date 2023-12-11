@@ -4,6 +4,14 @@ import { RenderOptions, cleanup, render } from '@testing-library/react';
 import { ReactElement } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { afterEach, beforeAll, vi } from 'vitest';
+import { MovieProvider } from '../components/MovieContext';
+
+// mockar WEB API:et ReSizeObserver
+class MockResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
 
 // Före alla tester, simulera window.matchMedia-funktionen för att undvika fel vid körning av tester
 beforeAll(() => {
@@ -17,13 +25,17 @@ beforeAll(() => {
     removeEventListener: vi.fn(),
     dispatchEvent: vi.fn(),
   }));
+  // Sätter upp mockningen för ReSizeObserver
+  global.ResizeObserver = MockResizeObserver;
 });
 
 // Definiera en anpassad render-funktion som omsluter komponenten med nödvändiga context-leverantörer
 export const customRender = (ui: ReactElement, options?: RenderOptions) =>
   render(
     <Router>
-      <MantineProvider>{ui}</MantineProvider>
+      <MantineProvider>
+        <MovieProvider>{ui}</MovieProvider>
+      </MantineProvider>
     </Router>,
     options,
   );
