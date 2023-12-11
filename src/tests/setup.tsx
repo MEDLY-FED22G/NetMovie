@@ -33,7 +33,7 @@ beforeAll(() => {
   global.ResizeObserver = MockResizeObserver;
 });
 
-// Definiera en anpassad render-funktion som omsluter komponenten med nödvändiga context-leverantörer
+// Definiera en anpassad render-funktion som omsluter komponenten
 export const customRender = (ui: ReactElement, options?: RenderOptions) =>
   render(
     <MantineProvider>
