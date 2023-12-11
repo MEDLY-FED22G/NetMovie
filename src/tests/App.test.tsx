@@ -44,7 +44,7 @@ describe('Entire application', () => {
     expect(bookmarksPageTitle).toBeInTheDocument();
   });
 
-  test.only('navigates to and renders selected movie page', async () => {
+  test('navigates to and renders selected movie page', async () => {
     customRender(<App />);
     // Initial check to verify that the selected movie page is not active
     expect(screen.queryByText('Add to Bookmarks')).not.toBeInTheDocument();
