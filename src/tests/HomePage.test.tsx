@@ -30,16 +30,47 @@ describe('Home page component', () => {
 
   test('renders the appropriate movie that gets searched for', async () => {
     customRender(<HomePage />);
+
     const searchInput = screen.getByPlaceholderText(/Search for a movie.../i);
     await user.click(searchInput);
-    await user.keyboard('silence');
+    await user.keyboard('the silence of the lambs');
 
     const movieGrid = screen.getByTestId('movie-group');
-    const { getByRole } = within(movieGrid);
-
+    const { getByRole, getAllByRole } = within(movieGrid);
+    const allMovies = getAllByRole('link', {
+      name: /Poster/i,
+    });
     const searchResult = getByRole('link', {
       name: /The Silence of the Lambs/i,
     });
+
     expect(searchResult).toBeVisible;
+    expect(allMovies).toHaveLength(1);
+  });
+
+  test('renders the correct amount of movies in the trending carousel', async () => {
+    customRender(<HomePage />);
+    screen.debug();
+
+    const trendingCarousel = screen.getByTestId('Trending-carousel');
+    const { getAllByRole } = within(trendingCarousel);
+
+    const trendingMovies = getAllByRole('link', {
+      name: /Poster/i,
+    });
+    expect(trendingMovies).toHaveLength(9);
+  });
+
+  test('renders the correct amount of movies in the recommended carousel', async () => {
+    customRender(<HomePage />);
+    screen.debug();
+
+    const trendingCarousel = screen.getByTestId('Recommended for you-carousel');
+    const { getAllByRole } = within(trendingCarousel);
+
+    const trendingMovies = getAllByRole('link', {
+      name: /Poster/i,
+    });
+    expect(trendingMovies).toHaveLength(7);
   });
 });
