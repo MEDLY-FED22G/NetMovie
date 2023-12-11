@@ -4,7 +4,7 @@ import { expect, test } from 'vitest';
 import Header from '../components/Header';
 import { customRender } from './setup';
 
-test.only('Check that header renders links with correct href links', async () => {
+test('Check that header renders links with correct href links', async () => {
   const headerLinks = [
     { text: 'NetMOVIE', href: '/' },
     { text: 'Home', href: '/' },
