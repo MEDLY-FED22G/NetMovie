@@ -10,7 +10,6 @@ test('renders year and rating props', () => {
 
   const yearText = screen.getByText('2002');
   const ratingText = screen.getByText('Rating: PG');
-  screen.debug();
 
   expect(yearText).toBeInTheDocument();
   expect(ratingText).toBeInTheDocument();
