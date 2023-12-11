@@ -96,8 +96,8 @@ const StyledDropdown = styled.div<DropdownProps>`
 
 const links = [
   { link: '/', label: 'Home', icon: <IconHome /> },
-  { link: '/category', label: 'Categories', icon: <IconCategory2 /> },
-  { link: '/bookmark', label: 'Bookmarks', icon: <IconBookmarks /> },
+  { link: '/categories', label: 'Categories', icon: <IconCategory2 /> },
+  { link: '/bookmarks', label: 'Bookmarks', icon: <IconBookmarks /> },
 ];
 
 export default function Header() {
