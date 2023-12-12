@@ -1,6 +1,6 @@
-import React from 'react';
 import { Carousel } from '@mantine/carousel';
 import { Stack, Title } from '@mantine/core';
+import React from 'react';
 import MovieCard from './MovieCard';
 import { Movie } from './MovieContext';
 
@@ -29,6 +29,7 @@ const MyCarousel: React.FC<MyCarouselProps> = ({ movies, title }) => {
     <Stack my={30} gap={15}>
       <Title order={2}>{title}</Title>
       <Carousel
+        data-testid={`${title}-carousel`}
         slideSize={{
           base: sizes.base.width,
           sm: sizes.sm.width,
@@ -42,7 +43,7 @@ const MyCarousel: React.FC<MyCarouselProps> = ({ movies, title }) => {
         slideGap="lg"
         controlsOffset="md"
         controlSize={35}
-        align='start'
+        align="start"
         loop
         dragFree
       >

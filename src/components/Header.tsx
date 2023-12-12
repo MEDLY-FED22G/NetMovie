@@ -87,7 +87,7 @@ const StyledDropdown = styled.div<DropdownProps>`
           left: 0;
           width: 100%;
           background-color: var(--mantine-color-body);
-          z-index: 10;
+          z-index: 30001;
         `
       : css`
           display: none;
