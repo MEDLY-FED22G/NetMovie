@@ -96,8 +96,8 @@ const StyledDropdown = styled.div<DropdownProps>`
 
 const links = [
   { link: '/', label: 'Home', icon: <IconHome /> },
-  { link: '/category', label: 'Categories', icon: <IconCategory2 /> },
-  { link: '/bookmark', label: 'Bookmarks', icon: <IconBookmarks /> },
+  { link: '/categories', label: 'Categories', icon: <IconCategory2 /> },
+  { link: '/bookmarks', label: 'Bookmarks', icon: <IconBookmarks /> },
 ];
 
 export default function Header() {
@@ -153,7 +153,7 @@ export default function Header() {
             <Title order={3}>NetMOVIE</Title>
           </Group>
         </NavLink>
-        <Group gap={15} visibleFrom="xs">
+        <Group gap={15} visibleFrom="xs" data-testid="nav-bar">
           {items}
         </Group>
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="md" />

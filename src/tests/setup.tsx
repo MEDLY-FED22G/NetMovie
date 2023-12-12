@@ -33,7 +33,7 @@ beforeAll(() => {
   global.ResizeObserver = MockResizeObserver;
 });
 
-// Definiera en anpassad render-funktion som omsluter komponenten med nödvändiga context-leverantörer
+// Definiera en anpassad render-funktion som omsluter komponenten
 export const customRender = (ui: ReactElement, options?: RenderOptions) =>
   render(
     <MantineProvider>
@@ -42,8 +42,8 @@ export const customRender = (ui: ReactElement, options?: RenderOptions) =>
           <Routes>
             <Route path="/" element={ui}>
               <Route index element={<HomePage />} />
-              <Route path="category" element={<CategoryPage />} />
-              <Route path="bookmark" element={<BookmarkPage />} />
+              <Route path="categories" element={<CategoryPage />} />
+              <Route path="bookmarks" element={<BookmarkPage />} />
               <Route path="/movies/:title" element={<MoviePage />} />
             </Route>
           </Routes>
