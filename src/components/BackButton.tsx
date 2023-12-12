@@ -1,7 +1,7 @@
 import { Button } from '@mantine/core';
 import { IconArrowBack } from '@tabler/icons-react';
 import React from 'react';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const BackButton: React.FC = () => {
   const navigate = useNavigate();
@@ -23,5 +23,3 @@ const BackButton: React.FC = () => {
 };
 
 export default BackButton;
-
-// Navigerar ett steg bakåt, ska ligga på MoviePage
