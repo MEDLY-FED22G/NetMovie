@@ -1,7 +1,7 @@
 import { Container, Group, Text } from '@mantine/core';
 import React from 'react';
-import MovieCard from './MovieCard'; // Update the import path as necessary
-import { useMovieContext } from './MovieContext'; // Update the import path as necessary
+import MovieCard from './MovieCard';
+import { useMovieContext } from './MovieContext';
 
 const MoviesGrid: React.FC = () => {
   const { filteredMovies } = useMovieContext();
