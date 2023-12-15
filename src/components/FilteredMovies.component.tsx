@@ -11,7 +11,6 @@ const MoviesGrid: React.FC = () => {
   }
 
   return (
-    <Container size={'xl'} py={30} mih={'calc(100vh - 129px)'}>
       <Group gap={'lg'} data-testid="movie-group">
         {filteredMovies.map((movie, index) => (
           <div key={index} style={{ margin: '10px' }}>
@@ -19,7 +18,6 @@ const MoviesGrid: React.FC = () => {
           </div>
         ))}
       </Group>
-    </Container>
   );
 };
 
