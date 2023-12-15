@@ -13,6 +13,7 @@ const MovieSearchBar = () => {
       border: 'none',
       borderRadius: '4px',
       backgroundColor: '#F0F0F0',
+      marginBottom: '2rem',
   
       '&:focus': {
         borderColor: '#8C7AE6',

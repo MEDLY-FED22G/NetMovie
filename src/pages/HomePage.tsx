@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <Container size={'xl'} py={30} mih={'calc(100vh - 129px)'}>
-      <MovieSearchBar />
+      <MovieSearchBar/>
       <MoviesGrid />
       <MyCarousel movies={trendingMovies} title="Trending" />
       <MyCarousel movies={recommendedMovies} title="Recommended for you" />
