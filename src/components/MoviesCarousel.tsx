@@ -1,5 +1,6 @@
 import { IconArrowBadgeLeft, IconArrowBadgeRight } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
+import no_image from '../assets/no_image.png';
 import moviesData from '../data/movies.json';
 import { Movie } from './MovieContext';
 
@@ -54,7 +55,7 @@ export function MoviesCarousel() {
               flexDirection: 'column',
               justifyContent: 'space-between',
               backgroundImage: `url(${
-                movie.thumbnail ? movie.thumbnail : '/assets/no_image.png'
+                movie.thumbnail ? movie.thumbnail : { no_image }
               })`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',

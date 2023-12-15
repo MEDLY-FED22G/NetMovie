@@ -1,6 +1,7 @@
 import { Box, Group, Image, Paper, Stack, Text } from '@mantine/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import no_image from '../assets/no_image.png';
 import ThumbnailBookmarkButton from './ThumbnailBookmarkButton';
 
 import { Movie, useMovieContext } from './MovieContext';
@@ -70,7 +71,7 @@ const MovieCard: React.FC<Movie> = (movie) => {
             <Image
               src={movie.thumbnail}
               alt={`${movie.title} Poster`}
-              fallbackSrc="/assets/no_image.png"
+              fallbackSrc={no_image}
               radius="sm"
               h="100%"
             />

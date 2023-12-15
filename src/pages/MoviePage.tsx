@@ -11,6 +11,7 @@ import {
 } from '@mantine/core';
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import no_image from '../assets/no_image.png';
 import BackButton from '../components/BackButton';
 import { useMovieContext } from '../components/MovieContext';
 
@@ -100,7 +101,7 @@ const MoviePage: React.FC = () => {
             <Image
               src={movie.thumbnail}
               alt={`${movie.title} Poster`}
-              fallbackSrc="/assets/no_image.png"
+              fallbackSrc={no_image}
               radius="sm"
               h="100%"
             />

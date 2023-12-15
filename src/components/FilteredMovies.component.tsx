@@ -1,4 +1,4 @@
-import { Container, Group, Text } from '@mantine/core';
+import { Group, Text } from '@mantine/core';
 import React from 'react';
 import MovieCard from './MovieCard';
 import { useMovieContext } from './MovieContext';
@@ -11,13 +11,13 @@ const MoviesGrid: React.FC = () => {
   }
 
   return (
-      <Group gap={'lg'} data-testid="movie-group">
-        {filteredMovies.map((movie, index) => (
-          <div key={index} style={{ margin: '10px' }}>
-            <MovieCard {...movie} />
-          </div>
-        ))}
-      </Group>
+    <Group gap={'lg'} data-testid="movie-group">
+      {filteredMovies.map((movie, index) => (
+        <div key={index} style={{ margin: '10px' }}>
+          <MovieCard {...movie} />
+        </div>
+      ))}
+    </Group>
   );
 };
 
