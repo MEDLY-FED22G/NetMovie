@@ -1,7 +1,8 @@
+import { IconArrowBadgeLeft, IconArrowBadgeRight } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
+import no_image from '../assets/no_image.png';
 import moviesData from '../data/movies.json';
 import { Movie } from './MovieContext';
-import { IconArrowBadgeLeft, IconArrowBadgeRight } from '@tabler/icons-react';
 
 export function MoviesCarousel() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -20,7 +21,6 @@ export function MoviesCarousel() {
       (prevIndex) => (prevIndex - 1 + movies.length) % movies.length,
     );
   };
-
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden', width: '100%' }}>
@@ -54,7 +54,9 @@ export function MoviesCarousel() {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              backgroundImage: `url(${movie.thumbnail ? movie.thumbnail : '/src/assets/no_image.png'})`,
+              backgroundImage: `url(${
+                movie.thumbnail ? movie.thumbnail : { no_image }
+              })`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               margin: '10px',
@@ -68,9 +70,7 @@ export function MoviesCarousel() {
                 right: '10px',
                 zIndex: 2,
               }}
-            >
-
-            </div>
+            ></div>
             <div
               style={{
                 fontWeight: 700,

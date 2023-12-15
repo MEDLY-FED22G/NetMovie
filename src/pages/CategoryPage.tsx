@@ -30,22 +30,17 @@ const CategoryPage: React.FC = () => {
       <Tabs onChange={handleCategoryChange}>
         <Tabs.List mb={30}>
           {genres.map((category) => (
-
             <Tabs.Tab
               key={category}
               value={category}
               data-testid={`${category}-tab`}
             >
-
               {category}
             </Tabs.Tab>
           ))}
         </Tabs.List>
       </Tabs>
 
-      {/* <h2>{selectedCategory}</h2> */}
-
-      {/* When a category is chosen, show movies belonging to that category */}
       <Group>
         {filteredMovies.map((movie) => (
           <MovieCard key={movie.title} {...movie} />

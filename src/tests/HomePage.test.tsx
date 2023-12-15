@@ -50,7 +50,6 @@ describe('Home page component', () => {
 
   test('renders the correct amount of movies in the trending carousel', async () => {
     customRender(<HomePage />);
-    screen.debug();
 
     const trendingCarousel = screen.getByTestId('Trending-carousel');
     const { getAllByRole } = within(trendingCarousel);
@@ -63,7 +62,6 @@ describe('Home page component', () => {
 
   test('renders the correct amount of movies in the recommended carousel', async () => {
     customRender(<HomePage />);
-    screen.debug();
 
     const trendingCarousel = screen.getByTestId('Recommended for you-carousel');
     const { getAllByRole } = within(trendingCarousel);

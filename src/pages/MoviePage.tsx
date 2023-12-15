@@ -9,15 +9,21 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import React, {  } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import no_image from '../assets/no_image.png';
 import BackButton from '../components/BackButton';
 import { useMovieContext } from '../components/MovieContext';
 
 import MovieDetailsBookmarkButton from '../components/MovieDetailsBookmarkButton';
 
 const MoviePage: React.FC = () => {
-  const { movies, addBookmarkedMovie, removeBookmarkedMovie, isMovieBookmarked } = useMovieContext();
+  const {
+    movies,
+    addBookmarkedMovie,
+    removeBookmarkedMovie,
+    isMovieBookmarked,
+  } = useMovieContext();
   const { title } = useParams<{ title: string }>();
   const movie = movies.find((movie) => movie.title === title);
 
@@ -26,7 +32,6 @@ const MoviePage: React.FC = () => {
     return <div>Error fetching movie details</div>;
   }
   const isBookmarked = isMovieBookmarked(movie.title);
-
 
   const handleBookmarkClick = () => {
     // Toggle bookmark status
@@ -44,9 +49,9 @@ const MoviePage: React.FC = () => {
       mih={'calc(100vh - 129px)'}
       pb={30}
     >
-      <Stack align="center" justify='center' gap={5} h={"100%"}>
-        <Group w={"100%"}>
-        <BackButton />
+      <Stack align="center" justify="center" gap={5} h={'100%'}>
+        <Group w={'100%'}>
+          <BackButton />
         </Group>
         <Flex
           w="100%"
@@ -96,7 +101,7 @@ const MoviePage: React.FC = () => {
             <Image
               src={movie.thumbnail}
               alt={`${movie.title} Poster`}
-              fallbackSrc="/src/assets/no_image.png"
+              fallbackSrc={no_image}
               radius="sm"
               h="100%"
             />
